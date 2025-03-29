@@ -1,5 +1,9 @@
 # MCP with PlayWright test
 
+## Project Summary
+
+This project demonstrates the integration of Playwright with MCP (Micro Code Protocol) to automate web interactions and validations. It provides a step-by-step guide to set up Playwright, configure MCP for automation tasks, and test the setup with a sample use case. The example showcases how to navigate to a webpage, extract the title, and validate its content programmatically using Playwright commands.
+
 ## 1. Install Playwright
 
 Reference <https://playwright.dev/docs/intro>
@@ -13,7 +17,6 @@ npm init playwright@latest
 ## 2. Install Playwright MCP 
 
 Use Cline or RooCode to install Playwright MCP.
-
 
 Below is the my MCP config file for Windows 11.
 
@@ -59,6 +62,8 @@ Below is the my MCP config file for Windows 11.
       ]
     }
 ```
+- Cline MCP server config
+![](./mcpServer_playwright.png)
 
 ## 3 Test mcp-playwright
 
@@ -88,10 +93,10 @@ AI Response:
     Now, let's start by navigating to the URL.
     ```
 - playwright_navigate
-    ![](./playwright_navigate.png)
+    - ![](./playwright_navigate.png)
 
 - playwright_evaluate    
-    ![](playwright_evaluate.png)
+    - ![](playwright_evaluate.png)
 
 - attempt_completion
-    ![](playwright_attempt_completion.png)
+    - ![](playwright_attempt_completion.png)
