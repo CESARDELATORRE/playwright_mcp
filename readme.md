@@ -64,6 +64,13 @@ Playwright: go to https://www.microsoft.com and return the page then create a 
 ```
 
 ```text
-Playwright: go to https://www.microsoft.com and return the page title and all top navigation link texts
+Use the Playwright MCP server to go to https://www.microsoft.com, see it in the browser and return the page title and all top navigation link texts in the chat output.
 ```
+
+
+![alt text](images/MCP-server-Playwright-exec-1.png)
+
+![alt text](images/MCP-server-Playwright-exec-2.png)
+
+![alt text](images/MCP-server-Playwright-exec-3.png)
 
