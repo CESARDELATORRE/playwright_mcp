@@ -1,102 +1,60 @@
 # MCP with PlayWright test
 
+Blog post and video on why MCP + Playwright:
+https://nearform.com/digital-community/supercharging-playwright-testing/
+
 ## Project Summary
 
-This project demonstrates the integration of Playwright with MCP (Micro Code Protocol) to automate web interactions and validations. It provides a step-by-step guide to set up Playwright, configure MCP for automation tasks, and test the setup with a sample use case. The example showcases how to navigate to a webpage, extract the title, and validate its content programmatically using Playwright commands.
+This project demonstrates the integration of Playwright with MCP and usage from VS Code GHCP.
 
 ## 1. Install Playwright
 
-Reference <https://playwright.dev/docs/intro>
+Follow this: https://playwright.dev/docs/intro
 
-```shell
-npm init playwright@latest
+However, for VS Code, I installed it by installing the Playwright VS Code extension:
+https://playwright.dev/docs/getting-started-vscode
+
+
+##**Note:**
+
+**The Playwrigth MCP server is for agent-driven browser automation, not running Playwright Test specs. Use the Playwright CLI or Playwright VS Code extension for running the tests.**
+
+For instance, for running a test you can do it with the CLI like the following:
+
+```
+npx playwright test e2e/microsoft-site-tests.spec.ts --project='Microsoft Edge' --reporter=line
 ```
 
-[install logs](install_Playwright.md)
+Or with the GH Extension pressing the button:
+![alt text](images/tests-extension.png)
 
-## 2. Install Playwright MCP 
+## 2. Install Playwright MCP server
 
-Use Cline or RooCode to install Playwright MCP.
-
-Below is the my MCP config file for Windows 11.
+Add the following MCP config file to your the .vscode/mcp.json file.
 
 ```json
-"github.com/executeautomation/mcp-playwright": {
-      "command": "cmd",
+{
+  "servers": {
+    "playwright": {
+      "command": "npx",
       "args": [
-        "/c",
-        "npx",
-        "-y",
-        "@executeautomation/playwright-mcp-server"
-      ],
-      "disabled": false,
-      "autoApprove": [
-        "start_codegen_session",
-        "end_codegen_session",
-        "get_codegen_session",
-        "clear_codegen_session",
-        "playwright_navigate",
-        "playwright_screenshot",
-        "playwright_click",
-        "playwright_iframe_click",
-        "playwright_fill",
-        "playwright_select",
-        "playwright_hover",
-        "playwright_evaluate",
-        "playwright_console_logs",
-        "playwright_close",
-        "playwright_get",
-        "playwright_post",
-        "playwright_put",
-        "playwright_patch",
-        "playwright_expect_response",
-        "playwright_assert_response",
-        "playwright_custom_user_agent",
-        "playwright_get_visible_text",
-        "playwright_get_visible_html",
-        "playwright_go_back",
-        "playwright_go_forward",
-        "playwright_drag",
-        "playwright_press_key",
-        "playwright_save_as_pdf"
+        "@playwright/mcp@latest",
+        "--browser=msedge"
       ]
     }
+  }
+}
 ```
-- Cline MCP server config
-![](./mcpServer_playwright.png)
 
-## 3 Test mcp-playwright
+
+## 3 Test mcp-playwrightw with example prompts:
 
 User input:
 ```text
-use playwright, 
-visit `https://quoteapi-uat.ipipeline.com/swagger/index.html `, get value of the <title>, 
-if the title value start with `Quote API Swagger UI `, 
-its success, otherwise, its failed. 
-please show me the status if the site is success or failed.
+Playwright: go to https://www.microsoft.com and return the page then create a screenshot of it and put it in the screenshots folder with the name microsoft-home-page-screenshot-by-playwright-mcp-server.png
 ```
 
-AI Response:
+```text
+Playwright: go to https://www.microsoft.com and return the page title and all top navigation link texts
+```
 
-- API Request
-
-    ```text
-
-    The task is to use Playwright to visit a URL, get the value of the <title> tag, and determine if the title starts with "Quote API Swagger UI". Based on this, report whether the site check was a success or failure.
-
-    Here's the plan:
-
-    Use the playwright_navigate tool to visit the specified URL.
-    Use the playwright_evaluate tool to get the title of the page.
-    Evaluate the title to determine if it starts with "Quote API Swagger UI".
-    Use the attempt_completion tool to report the status (success or failed).
-    Now, let's start by navigating to the URL.
-    ```
-- playwright_navigate
-    - ![](./playwright_navigate.png)
-
-- playwright_evaluate    
-    - ![](playwright_evaluate.png)
-
-- attempt_completion
-    - ![](playwright_attempt_completion.png)
