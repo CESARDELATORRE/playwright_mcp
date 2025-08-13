@@ -28,6 +28,14 @@ npx playwright test e2e/microsoft-site-tests.spec.ts --project='Microsoft Edge' 
 Or with the GH Extension pressing the button:
 ![alt text](images/tests-extension.png)
 
+Or running the Test in Playwright UI Mode:
+```
+npx playwright test e2e/quote-api-swagger-ui-check.spec.ts --ui --project='Microsoft Edge' --ui-host=127.0.0.1 --ui-port=9323
+```
+
+![alt text](images/playwright-test-ui.png)
+
+
 ## 2. Install Playwright MCP server
 
 Add the following MCP config file to your the .vscode/mcp.json file.
