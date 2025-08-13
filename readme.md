@@ -7,7 +7,7 @@ https://nearform.com/digital-community/supercharging-playwright-testing/
 
 This project demonstrates the integration of Playwright with MCP and usage from VS Code GHCP.
 
-## 1. Install Playwright
+## 1. Install Playwright (for running tests)
 
 Follow this: https://playwright.dev/docs/intro
 
@@ -74,3 +74,14 @@ Use the Playwright MCP server to go to https://www.microsoft.com, see it in the 
 
 ![alt text](images/MCP-server-Playwright-exec-3.png)
 
+
+
+
+
+# Running the Playwright tests triggered by CI with Actions in Github.com
+
+This is configured with the [.github/workflows/playwright.yml](.github/workflows/playwright.yml) yaml file.
+
+I'm using a different playwright config with the [playwright.ci.config.ts](/playwright.ci.config.ts) file so it's running the tests "headless" with no visual browser, otherwise, you get errors in the CI tests.
+
+![alt text](images/ci-actions-tests-execution.png)
