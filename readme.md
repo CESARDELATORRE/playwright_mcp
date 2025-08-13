@@ -24,6 +24,7 @@ For instance, for running a test you can do it with the CLI like the following:
 ```
 npx playwright test e2e/microsoft-site-tests.spec.ts --project='Microsoft Edge' --reporter=line
 ```
+![alt text](images/tests-cli.png)
 
 Or with the GH Extension pressing the button:
 ![alt text](images/tests-extension.png)
